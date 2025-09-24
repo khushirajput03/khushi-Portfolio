@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CardItem = {
   quote?: string;
@@ -28,42 +28,32 @@ export const InfiniteMovingCards = ({
   className,
   renderItem,
 }: InfiniteMovingCardsProps) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
   const [start, setStart] = useState(false);
 
   useEffect(() => {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
+    if (!containerRef.current || !scrollerRef.current) return;
 
-      // Duplicate items to create infinite scroll illusion
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        scrollerRef.current?.appendChild(duplicatedItem);
-      });
+    const scrollerContent = Array.from(scrollerRef.current.children);
 
-      setDirection();
-      setSpeed();
-      setStart(true);
-    }
-  }, []);
+    // Duplicate items to create infinite scroll illusion
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      scrollerRef.current?.appendChild(duplicatedItem);
+    });
 
-  const setDirection = () => {
-    if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse"
-      );
-    }
-  };
+    // Set CSS variables for animation
+    containerRef.current.style.setProperty(
+      "--animation-direction",
+      direction === "left" ? "forwards" : "reverse"
+    );
 
-  const setSpeed = () => {
-    if (containerRef.current) {
-      const duration =
-        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
-      containerRef.current.style.setProperty("--animation-duration", duration);
-    }
-  };
+    const duration = speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
+    containerRef.current.style.setProperty("--animation-duration", duration);
+
+    setStart(true);
+  }, [direction, speed]);
 
   return (
     <div
@@ -87,8 +77,7 @@ export const InfiniteMovingCards = ({
               renderItem(item)
             ) : item.quote ? (
               // Default testimonial card
-              <div className="group rounded-2xl border border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)] 
-                              transition-all duration-500 hover:shadow-[0_0_25px_rgba(0,0,255,0.6)] hover:scale-105">
+              <div className="group rounded-2xl border border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)] transition-all duration-500 hover:shadow-[0_0_25px_rgba(0,0,255,0.6)] hover:scale-105">
                 <blockquote>
                   <span className="text-sm text-neutral-800 dark:text-gray-100">
                     {item.quote}

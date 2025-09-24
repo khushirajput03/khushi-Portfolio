@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -27,6 +27,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
   });
   const cardLength = content.length;
 
+  // Track scroll progress and set active card
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardsBreakpoints = content.map((_, index) => index / cardLength);
     const closestBreakpointIndex = cardsBreakpoints.reduce(
@@ -36,33 +37,33 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
           ? index
           : acc;
       },
-      0,
+      0
     );
     setActiveCard(closestBreakpointIndex);
   });
 
-  const backgroundColors = ["#0f172a", "#000000", "#171717"];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)",
-    "linear-gradient(to bottom right, #ec4899, #6366f1)",
-    "linear-gradient(to bottom right, #f97316, #eab308)",
-  ];
+  const backgroundColors = useMemo(() => ["#0f172a", "#000000", "#171717"], []);
+  const linearGradients = useMemo(
+    () => [
+      "linear-gradient(to bottom right, #06b6d4, #10b981)",
+      "linear-gradient(to bottom right, #ec4899, #6366f1)",
+      "linear-gradient(to bottom right, #f97316, #eab308)",
+    ],
+    []
+  );
 
   const [backgroundGradient, setBackgroundGradient] = useState(
     linearGradients[0]
   );
 
   useEffect(() => {
-    setBackgroundGradient(
-      linearGradients[activeCard % linearGradients.length]
-    );
-  }, [activeCard, linearGradients]); // ✅ added linearGradients here
+    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
+  }, [activeCard, linearGradients]);
 
   return (
     <motion.div
       animate={{
-        backgroundColor:
-          backgroundColors[activeCard % backgroundColors.length],
+        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
       className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
       ref={ref}
@@ -97,7 +98,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
           contentClassName
         )}
       >
-        {content[activeCard].content ?? null}
+        {content[activeCard]?.content ?? null}
       </div>
     </motion.div>
   );

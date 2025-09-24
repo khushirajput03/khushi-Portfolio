@@ -11,7 +11,7 @@ interface Item {
 }
 
 interface ApproachProps {
-  items?: Item[]; // make items optional
+  items?: Item[]; 
 }
 
 const Approach: React.FC<ApproachProps> = ({ items = [] }) => {
