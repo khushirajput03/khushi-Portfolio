@@ -54,11 +54,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .atmosphereColor(mergedConfig.atmosphereColor)
         .atmosphereAltitude(mergedConfig.atmosphereAltitude);
 
-      // Points data
+      // Points data with safe casts
       globe
         .pointsData(data)
-        .pointColor((point: PointData) => point.color)
-        .pointAltitude((point: PointData) => point.size)
+        .pointColor(((point: PointData) => point.color) as any)
+        .pointAltitude(((point: PointData) => point.size) as any)
         .pointRadius(0.2);
 
       setIsInitialized(true);
