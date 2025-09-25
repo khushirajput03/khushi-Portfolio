@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
+import { Color, Scene, Fog, PerspectiveCamera, Vector3, Group } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -63,7 +63,7 @@ interface WorldProps {
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef<THREE.Group>();
+  const groupRef = useRef<Group | null>(null); // fixed useRef
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
@@ -92,16 +92,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     }
   }, []);
 
-  // Build material when globe is initialized or when relevant props change
+  // Build material
   useEffect(() => {
     if (!globeRef.current || !isInitialized) return;
 
-    const globeMaterial = globeRef.current.globeMaterial() as unknown as {
-      color: Color;
-      emissive: Color;
-      emissiveIntensity: number;
-      shininess: number;
-    };
+    const globeMaterial = globeRef.current.globeMaterial() as any;
     globeMaterial.color = new Color(defaultProps.globeColor);
     globeMaterial.emissive = new Color(defaultProps.emissive);
     globeMaterial.emissiveIntensity = defaultProps.emissiveIntensity;
@@ -114,7 +109,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     defaultProps.shininess,
   ]);
 
-  // Build data when globe is initialized or when data changes
+  // Build data
   useEffect(() => {
     if (!globeRef.current || !isInitialized || !data) return;
 
@@ -135,7 +130,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       },
     ]);
 
-    // remove duplicates for same lat and lng
+    // remove duplicates
     const filteredPoints = points.filter(
       (v, i, a) =>
         a.findIndex((v2) => v2.lat === v.lat && v2.lng === v.lng) === i
@@ -166,7 +161,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .pointsData(filteredPoints)
-      .pointColor((e: any) => e.color)
+      .pointColor((e: any) => e.color) // fixed TypeScript
       .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2);
@@ -193,7 +188,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     defaultProps.maxRings,
   ]);
 
-  // Handle rings animation with cleanup
+  // Rings animation
   useEffect(() => {
     if (!globeRef.current || !isInitialized || !data) return;
 
@@ -215,9 +210,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       globeRef.current!.ringsData(ringsData);
     }, 2000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [isInitialized, data]);
 
   return <group ref={groupRef} />;
@@ -262,8 +255,8 @@ export function World(props: WorldProps) {
         enableZoom={false}
         minDistance={cameraZ}
         maxDistance={cameraZ}
-        autoRotateSpeed={1}
-        autoRotate={true}
+        autoRotateSpeed={globeConfig.autoRotateSpeed || 1}
+        autoRotate={globeConfig.autoRotate ?? true}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />
@@ -271,6 +264,7 @@ export function World(props: WorldProps) {
   );
 }
 
+// Utility functions
 export function hexToRgb(hex: string) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
