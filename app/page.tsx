@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
 import HeroSection from "@/components/HeroSection";
 import RecentProjects from "@/components/RecentProjects";
-import RecentProjects2 from "../components/ui/RecentProjects2";
 
 
 
@@ -19,7 +18,6 @@ export default function Home() {
       <HeroSection/>
       <Grid/>
       <RecentProjects/>
-      <RecentProjects2/>
       <Clients/>
       <Experience/>
       <Approach/>

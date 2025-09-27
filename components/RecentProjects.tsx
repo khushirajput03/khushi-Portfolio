@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
@@ -7,22 +8,24 @@ const RecentProjects = () => {
   return (
     <section id="recent-projects" className="relative z-10 bg-[#0f0f1b] py-20">
       {/* Heading */}
-      <div className="mb-50">
-        <h1 className="heading text-center relative z-10">
+      <div className="mb-35">
+        <h1 className="heading text-center relative z-10 text-3xl md:text-4xl font-bold">
           A small selection of{" "}
           <span className="text-purple-400">Recent Projects</span>
         </h1>
       </div>
 
-      {/* Fixed-width responsive grid */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-8 mt-20 place-items-center">
+      {/* Responsive grid */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+                      lg:max-w-7xl mx-auto gap-8 md:gap-8 md:max-w-3xl mt-20 place-items-center 
+                      space-y-35 lg:space-y-35 md:space-y-30">
         {projects.map(({ id, title, img, des, iconLists, link }) => (
-          <div key={id} className="relative z-10">
+          <div key={id} className="relative z-10 w-full">
             <PinContainer title={title} href={link} className="h-full relative z-0">
-              {/* Card container with fixed width + height */}
+              {/* Card */}
               <div className="flex flex-col bg-[#0b0b10] border border-white/10 rounded-2xl overflow-hidden shadow-lg relative z-0 w-[350px] min-h-[430px]">
                 
-                {/* Top image */}
+                {/* Image */}
                 <div className="px-6">
                   <div className="rounded-xl bg-gradient-to-b from-[#0f1220] to-[#13162d] overflow-hidden w-full h-[220px] flex items-end justify-center">
                     <img
@@ -33,19 +36,15 @@ const RecentProjects = () => {
                   </div>
                 </div>
 
-                {/* Body content */}
+                {/* Content */}
                 <div className="flex flex-col flex-1 px-6 pb-6 pt-4">
-                  <h1 className="font-bold text-white text-xl line-clamp-1">
-                    {title}
-                  </h1>
+                  <h1 className="font-bold text-white text-xl line-clamp-1">{title}</h1>
 
-                  <p className="text-gray-400 text-sm font-light mt-2 line-clamp-2">
-                    {des}
-                  </p>
+                  <p className="text-gray-400 text-sm font-light mt-2 line-clamp-2">{des}</p>
 
-                  {/* Footer pinned at bottom */}
+                  {/* Footer */}
                   <div className="mt-auto flex items-center justify-between pt-6 w-full">
-                    {/* Icons */}
+                    {/* Tech icons */}
                     <div className="flex items-center space-x-3 flex-shrink-0">
                       {iconLists.map((icon, idx) => (
                         <div

@@ -8,9 +8,10 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "I prioritize client collaboration, fostering open communication",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className: `lg:col-span-3 md:col-span-6 md:row-span-4 lg:h-[110vh] lg:w-[55vw]  md:w-[9x10vw] lg:ml-0 md:ml-40
+     w-[88vw] h-[40vh] ml-100 `,
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
     img: "/b1.svg",
@@ -20,7 +21,7 @@ export const gridItems = [
     id: 2,
     title: "I'm very flexible with time zone communications",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className: `lg:col-span-2 md:col-span-3 md:row-span-2 w-[88vw] h-[40vh] ml-100 lg:ml-0 lg:w-[35vw] lg:h-[55vh]`,
     imgClassName: "",
     titleClassName: "justify-start",
     img: "",
@@ -30,7 +31,9 @@ export const gridItems = [
     id: 3,
     title: "My tech stack",
     description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className: `lg:col-span-2 md:col-span-3 md:row-span-2 lg:w-[35vw] lg:ml-0 lg:h-[50vh]
+    md:col-span-6 md:w-[90vw] md:ml-55 w-full h-auto min-h-fit w-[88vw] h-[40vh] ml-100
+    `,
     imgClassName: "",
     titleClassName: "justify-center",
     img: "",
@@ -40,7 +43,9 @@ export const gridItems = [
     id: 4,
     title: "Tech enthusiast with a passion for development.",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: `lg:col-span-2 md:col-span-3 md:row-span-1 lg:ml-0 lg:w-[35vw] lg:h-[25vh]
+    md:w-[45vw] md:ml-35 w-[88vw] h-[20vh] ml-100
+    `,
     imgClassName: "",
     titleClassName: "justify-start",
     img: "/grid.svg",
@@ -51,8 +56,8 @@ export const gridItems = [
     id: 5,
     title: "Currently building a JS Animation library",
     description: "The Inside Scoop",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+    className: `md:col-span-3 md:row-span-2 lg:w-[55vw] md:w-[45vw] lg:h-[69vh] md:ml-0 w-[88vw] h-[20vh] ml-100`,
+    imgClassName: `absolute right-0 bottom-0 w-60 `,
     titleClassName: "justify-center md:justify-start lg:justify-center",
     img: "/b5.svg",
     spareImg: "/grid.svg",
@@ -61,13 +66,16 @@ export const gridItems = [
     id: 6,
     title: "Do you want to start a project together?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: `lg:col-span-2 md:col-span-3 md:row-span-1 lg:ml-0 lg:h-[40vh] lg:w-[35vw]
+    md:w-[45vw] md:ml-35 w-[88vw] h-[30vh] ml-100`,
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
     img: "",
     spareImg: "",
   },
 ];
+
+
 
 export const projects = [
   {
@@ -94,19 +102,15 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg", "/gsap.jpg"],
     link: "https://k72-website-3172.onrender.com/",
   },
-];
-
-
-export const projects2 = [
-  {
-    id: 1,
+    {
+    id: 4,
     title: "Google Gemini 2.0",
     des: "A web application replicating the Gemini platform by dynamically fetching and displaying real-time data through API integration, with a clean and responsive interface for seamless user experience.",
     img: "/gemini.png",
     iconLists: ["/re.svg", "/tail.svg"],
     link: "https://gemini-clone-6di7rq8s3-khushis-projects-41646acf.vercel.app/",
   },
-
+  
 ];
 
 

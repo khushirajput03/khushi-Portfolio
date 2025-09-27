@@ -125,12 +125,12 @@ export const BentoGridItem = ({
         {id === 2 && <GlobeDemo />}
 
         {id === 3 && (
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-4 w-120">
             {["React.js", "Next.js", "TypeScript", "Nodejs", "MongoDB", "Express"].map(
               (item, idx) => (
                 <span
                   key={idx}
-                  className="bg-[#10132e] text-center text-white text-xs px-2 py-1 rounded-lg"
+                  className="bg-[#10132e] text-center  text-white text-xs px-2 py-1 rounded-lg"
                 >
                   {item}
                 </span>
@@ -143,7 +143,7 @@ export const BentoGridItem = ({
           <div className="mt-5 relative">
             {/* Confetti animation */}
             {copied && (
-              <div className="absolute -bottom-5 right-0 w-40 h-40 pointer-events-none">
+              <div className="relative right-0 w-40 h-40 pointer-events-none">
                 <Lottie
                   animationData={animationData}
                   loop={false}
