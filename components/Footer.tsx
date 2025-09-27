@@ -1,5 +1,5 @@
 import React from "react";
-import MagicButton from "./ui/MagicButton"; 
+import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -38,12 +38,13 @@ const Footer: React.FC = () => {
           href="mailto:khushikhushi89978@gmail.com"
           className="w-full sm:w-auto max-w-xs sm:max-w-none"
         >
-         <MagicButton
-    title="Let's get in touch"
-    icon={<FaLocationArrow />}
-    position="right"
-    otherClasses="w-full text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4"
-  />
+          <MagicButton
+            title="Let's get in touch"
+            icon={<FaLocationArrow />}
+            position="right"
+            otherClasses="w-full text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4"
+          />
+
         </a>
       </div>
 
