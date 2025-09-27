@@ -1,18 +1,18 @@
 import React from "react";
-import MagicButton from "./ui/MagicButton";
+import MagicButton from "./ui/MagicButton"; // ensure this path points to the MagicButton file above
 import { FaLocationArrow } from "react-icons/fa6";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer
       className="relative w-full pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20 lg:pb-10"
       id="contact"
     >
       {/* Background Grid */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/footer-grid.svg"
           fill
@@ -25,13 +25,13 @@ const Footer = () => {
       {/* Content */}
       <div className="relative flex flex-col items-center text-center z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold max-w-[90vw] sm:max-w-[80vw] md:max-w-3xl leading-snug md:leading-normal">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to take <span className="text-purple">your</span> digital presence
+          to the next level?
         </h1>
 
         <p className="text-gray-400 mt-4 md:mt-6 mb-4 md:mb-6 max-w-[85vw] sm:max-w-xl text-xs sm:text-sm md:text-base lg:text-lg">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
+          Reach out to me today and let&apos;s discuss how I can help you achieve
+          your goals.
         </p>
 
         <a
