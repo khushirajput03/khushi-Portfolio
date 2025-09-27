@@ -13,10 +13,10 @@ const HeroSection = () => {
       />
 
       <div className='p-4 relative z-10 w-full text-center'>
-        <h1 className='mt-20 md:mt-0 text-3xl lg:text-7xl sm:pr-4 sm:pl-4 md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-40'>
+        <h1 className='mt-20 md:mt-0 text-[21px] lg:text-7xl sm:pr-4 sm:pl-4 md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-40'>
           Building complete web apps from
         </h1>
-        <h1 className='mt-6 md:mt-0 text-3xl md:text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-40'>
+        <h1 className='mt-6 md:mt-0 text-[21px] md:text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-40'>
           frontend to backend.
         </h1>
 
