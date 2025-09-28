@@ -10,7 +10,7 @@ const Navbar = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-100 text-white bg-black",
+        "fixed top-10 inset-x-0 mx-auto left-0 z-100 text-white bg-black",
         className
       )}
     >
