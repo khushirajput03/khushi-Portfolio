@@ -44,18 +44,15 @@ const Footer: React.FC = () => {
             position="right"
             otherClasses="w-full text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4"
           />
-
         </a>
       </div>
 
       {/* Footer Bottom */}
       <div className="relative z-10 mt-8 md:mt-12 lg:mt-16 flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto gap-3 md:gap-4">
-        {/* Copyright */}
         <p className="text-gray-400 text-xs md:text-sm order-2 md:order-1">
           © 2025 Khushi Singh. All rights reserved.
         </p>
 
-        {/* Social Icons */}
         <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 order-1 md:order-2">
           <a
             href="https://github.com/khushirajput03"
@@ -87,7 +84,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Bottom Spacing */}
       <div className="h-4 md:h-2 lg:h-0"></div>
     </footer>
   );
