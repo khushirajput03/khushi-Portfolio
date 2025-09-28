@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
 
       {/* Content */}
       <div className="relative flex flex-col items-center text-center z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold max-w-[90vw] sm:max-w-[80vw] md:max-w-3xl leading-snug md:leading-normal">
-          Ready to take <span className="text-purple">your</span> digital presence
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold max-w-[90vw] sm:max-w-[80vw] md:max-w-3xl leading-snug md:leading-normal text-white">
+          Ready to take <span className="text-purple-400">your</span> digital presence
           to the next level?
         </h1>
 
