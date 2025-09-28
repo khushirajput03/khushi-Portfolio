@@ -8,7 +8,7 @@ import { skills } from "@/data/index";
 const NeonSpotlightSkills = () => {
   return (
     // Main container: Extremely dark background
-    <section className=" w-full bg-[#000005] mt-[-90px]" id="skills">
+    <section className=" w-full bg-[#000005] mt-[-90px] " id="skills">
       <div className="w-full max-w-7xl mx-auto px-4">
         {/* Skills Grid Layout */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
