@@ -4,24 +4,23 @@ import Image from "next/image";
 import React from "react";
 import { skills } from "@/data/index";
 
-// ✅ Define type for a single skill
+
 export interface Skill {
   name: string;
-  img?: string; // optional image
+  img?: string; 
 }
 
-// ✅ Slice skills into two stacks
+
 const HALF = Math.ceil(skills.length / 2);
 const stackOne: Skill[] = skills.slice(0, HALF);
 const stackTwo: Skill[] = skills.slice(HALF);
 
-// ✅ Props interface for SkillCard
 interface SkillCardProps {
   item: Skill;
   index: number;
 }
 
-// ✅ SkillCard Component
+
 const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
   <div
     aria-label={`Skill: ${item.name}`}
