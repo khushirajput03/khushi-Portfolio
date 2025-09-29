@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef } from "react";
 import { workExperience } from "@/data";
-import Image from "next/image";
 import {
   motion,
   useAnimationFrame,

@@ -41,7 +41,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
   </div>
 );
 
-// ✅ CHANGE THE NAME HERE - SkillsWaterfallStack rakho
+
 const SkillsWaterfallStack: React.FC = () => {
   return (
     <section
