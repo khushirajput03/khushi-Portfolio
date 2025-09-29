@@ -181,6 +181,7 @@ type Uniforms = {
     type: string;
   };
 };
+
 const ShaderMaterial = ({
   source,
   uniforms,
@@ -192,7 +193,10 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh>();
+  
+  // ✅ FIX: Added proper type argument to useRef
+  const ref = useRef<THREE.Mesh>(null!);
+  
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -250,7 +254,7 @@ const ShaderMaterial = ({
     preparedUniforms["u_time"] = { value: 0, type: "1f" };
     preparedUniforms["u_resolution"] = {
       value: new THREE.Vector2(size.width * 2, size.height * 2),
-    }; // Initialize u_resolution
+    };
     return preparedUniforms;
   };
 
@@ -282,7 +286,7 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-    <mesh ref={ref as any}>
+    <mesh ref={ref}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>
@@ -291,11 +295,12 @@ const ShaderMaterial = ({
 
 const Shader: React.FC<ShaderProps> = ({ source, uniforms, maxFps = 60 }) => {
   return (
-    <Canvas className="absolute inset-0  h-full w-full">
+    <Canvas className="absolute inset-0 h-full w-full">
       <ShaderMaterial source={source} uniforms={uniforms} maxFps={maxFps} />
     </Canvas>
   );
 };
+
 interface ShaderProps {
   source: string;
   uniforms: {
