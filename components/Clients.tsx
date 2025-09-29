@@ -4,12 +4,10 @@ import Image from "next/image";
 import React from "react";
 import { skills } from "@/data/index";
 
-
 export interface Skill {
   name: string;
   img?: string; 
 }
-
 
 const HALF = Math.ceil(skills.length / 2);
 const stackOne: Skill[] = skills.slice(0, HALF);
@@ -19,7 +17,6 @@ interface SkillCardProps {
   item: Skill;
   index: number;
 }
-
 
 const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
   <div
