@@ -50,7 +50,7 @@ const SkillsWaterfallStack: React.FC = () => {
   return (
     <section
       id="skills"
-      className="pt-10 pb-6 w-full bg-black relative overflow-hidden group"
+      className="mt-[-80px] pb-6 w-full bg-black relative overflow-hidden group"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600
