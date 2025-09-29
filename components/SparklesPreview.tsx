@@ -5,7 +5,7 @@ import { SparklesCore } from "./ui/sparkles";
 export function SparklesPreview() {
   return (
     <div className="h-[25rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <h1 className="md:text-5xl text-[40px] lg:text-6xl font-bold text-center text-white relative z-20">
+      <h1 className="md:text-5xl text-[30px] lg:text-6xl font-bold text-center text-white relative z-20">
         Skills
       </h1>
       <div className="w-[40rem] h-40 relative">
