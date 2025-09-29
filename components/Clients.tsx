@@ -1,53 +1,60 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { skills } from "@/data/index"; // { id, name, img }
+import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
+import { skills } from "@/data/index";
 
-const NeonSpotlightSkills = () => {
+const Clients = () => {
   return (
-    <section className="w-full bg-[#000005] py-16 px-4" id="skills">
-      <div className="w-full max-w-7xl mx-auto">
-        {/* Responsive Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8">
-          {skills.map((item) => (
-            <div
-              key={item.id}
-              className="group relative flex flex-col items-center justify-center p-4 sm:p-6 rounded-xl 
-                         bg-gray-950/70 border border-gray-800 cursor-pointer overflow-hidden
-                         transition-all duration-500 ease-out hover:border-blue-500/50 
-                         hover:scale-[1.05] shadow-2xl shadow-transparent hover:shadow-blue-900/40"
-            >
-              {/* Neon Spotlight Glow */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(circle at center, #ec489930 0%, transparent 70%)",
-                  filter: "blur(30px)",
-                }}
-              ></div>
+    <div
+      className="py-20 w-full bg-black relative overflow-hidden"
+      id="skills"
+    >
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-900 via-blue-600 to-indigo-700 animate-[gradientShift_15s_ease_infinite] bg-[length:300%_300%] opacity-20"></div>
 
-              {/* Icon & Name */}
-              <div className="relative z-10 flex flex-col items-center">
-                {item.img && (
-                  <Image
-                    src={item.img}
-                    alt={item.name}
-                    width={64}
-                    height={64}
-                    className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 transition-transform duration-300 ease-in-out mb-3 group-hover:scale-110"
-                  />
-                )}
-                <span className="text-white font-medium text-xs sm:text-sm md:text-base text-center opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                  {item.name}
-                </span>
-              </div>
+      {/* Skills Section */}
+      <h2 className="text-center text-3xl md:text-4xl font-extrabold mt-20 mb-30 px-4">
+        <span className="text-white">My</span> <span className="text-blue-40z0">Skills</span>
+      </h2>
+      
+      <div className="w-full max-w-7xl mx-auto px-4"> {/* Added container with max-width and padding */}
+        <InfiniteMovingCards
+          items={skills}
+          direction="left"
+          speed="fast"
+          renderItem={(item) => (
+            <div className="group flex flex-col items-center justify-center cursor-pointer relative">
+              {item.img && (
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 rounded-full text-white shadow-[0_0_15px_rgba(0,0,255,0.5)] transition-transform duration-300 ease-in-out group-hover:scale-125 group-hover:shadow-[0_0_25px_rgba(0,0,255,0.8)]"
+                />
+              )}
+              {/* Name appears only on hover */}
+              <span className="mt-6 text-white font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                {item.name}
+              </span>
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
-    </section>
+
+      {/* Tailwind animation keyframes */}
+      <style>
+        {`
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+        `}
+      </style>
+    </div>
   );
 };
 
-export default NeonSpotlightSkills;
+export default Clients;

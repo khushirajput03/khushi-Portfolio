@@ -18,7 +18,7 @@ export default function Home() {
       <HeroSection/>
        <Grid/>
       <RecentProjects/>
-      <Clients/>
+      {/* <Clients/> */}
       <Experience/>
       <Approach/>
       <Footer/>
