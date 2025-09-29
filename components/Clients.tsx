@@ -13,6 +13,7 @@ const HALF = Math.ceil(skills.length / 2);
 const stackOne: Skill[] = skills.slice(0, HALF);
 const stackTwo: Skill[] = skills.slice(HALF);
 
+
 interface SkillCardProps {
   item: Skill;
   index: number;
@@ -41,7 +42,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
   </div>
 );
 
-// ✅ Main Waterfall Stack Component
 const SkillsWaterfallStack: React.FC = () => {
   return (
     <section
@@ -68,7 +68,7 @@ const SkillsWaterfallStack: React.FC = () => {
             ))}
           </div>
 
-          {/* Stack Two */}
+
           <div
             className="w-full md:w-5/12 lg:w-4/12 stack-two transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
@@ -80,7 +80,7 @@ const SkillsWaterfallStack: React.FC = () => {
         </div>
       </div>
 
-      {/* CSS Animations */}
+
       <style>
         {`
           .perspective-container {
