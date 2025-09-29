@@ -1,48 +1,124 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "motion/react"; // Assuming 'motion/react' works
 
-interface Item {
-  id: number;
-  title: string;
-  description: string;
-}
+import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"; // Assuming this path is correct
 
-interface ApproachProps {
-  items?: Item[]; 
-}
-
-const Approach: React.FC<ApproachProps> = ({ items = [] }) => {
+export function CanvasRevealEffectDemo() {
   return (
-    <section id="approach" className="relative z-10 bg-[#0f0f1b] py-20">
-      <div className="container mx-auto px-6 lg:px-12">
-        {/* Heading */}
-       
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className={cn(
-                "rounded-2xl bg-[#1a1a2e] p-6 shadow-lg hover:shadow-xl transition-shadow"
-              )}
-            >
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {item.title}
-              </h3>
-              <p className="text-gray-400">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
+    <>
+      <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-black w-full gap-4 mx-auto px-8">
+        {/* Card 1: Understand & Deconstruct */}
+        <Card
+          title="Understand & Deconstruct"
+          description="Break down the problem into modular components by identifying system bottlenecks, user requirements, and security constraints.."
+          phaseNumber="Phase 1"
+        >
+          <CanvasRevealEffect
+            animationSpeed={5.1}
+            containerClassName="bg-emerald-900"
+          />
+        </Card>
+        {/* Card 2: Design & Build */}
+        <Card
+          title="Design & Build"
+          description="Rapidly prototype and implement scalable, secure solutions using containerized microservices, API integrations, and cloud-native tools."
+          phaseNumber="Phase 2"
+        >
+          <CanvasRevealEffect
+            animationSpeed={3}
+            containerClassName="bg-black"
+            colors={[
+              [236, 72, 153],
+              [232, 121, 249],
+            ]}
+            dotSize={2}
+          />
+          <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50" />
+        </Card>
+        {/* Card 3: Test, Optimize & Deploy (UPDATED) */}
+        <Card
+          title="Test, Optimize & Deploy"
+          description="Validate functionality with CI pipelines, enhance performance via observability and logging, and deploy securely using VPNs, tunnels, and automated workflows."
+          phaseNumber="Phase 3"
+        >
+          <CanvasRevealEffect
+            animationSpeed={3}
+            containerClassName="bg-sky-600"
+            colors={[[125, 211, 252]]}
+          />
+        </Card>
       </div>
-    </section>
+    </>
+  );
+}
+
+const Card = ({
+  title,
+  description,
+  phaseNumber,
+  children,
+}: {
+  title: string;
+  description?: string;
+  phaseNumber: string;
+  children?: React.ReactNode;
+}) => {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="border border-white/[0.2] group/canvas-card flex items-center justify-center bg-black/50 max-w-sm w-full mx-auto p-4 relative h-[30rem] relative"
+    >
+      <Icon className="absolute h-6 w-6 -top-3 -left-3 text-white/[0.6]" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-white/[0.6]" />
+      <Icon className="absolute h-6 w-6 -top-3 -right-3 text-white/[0.6]" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-white/[0.6]" />
+
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="h-full w-full absolute inset-0"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="relative z-20">
+        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
+          <div className="px-5 py-2 rounded-full border border-white text-white text-xl font-medium">
+            {phaseNumber}
+          </div>
+        </div>
+        <h2 className="text-white text-3xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-center mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+          {title}
+        </h2>
+        {description && (
+          <p className="text-white text-base opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-center mt-2 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+            {description}
+          </p>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default Approach;
+export const Icon = ({ className, ...rest }: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className={className}
+      {...rest}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+  );
+};

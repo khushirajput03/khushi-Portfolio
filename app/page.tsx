@@ -1,6 +1,6 @@
 
 'use client'
-import Approach from "@/components/Approach";
+import { CanvasRevealEffectDemo } from "@/components/Approach";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
@@ -20,9 +20,9 @@ export default function Home() {
        <Grid/>
       <RecentProjects/>
       <SparklesPreview/>
-      {/* <Clients/> */}
+      <Clients/>
       <Experience/>
-      <Approach/>
+      <CanvasRevealEffectDemo/>
       <Footer/>
     </main>
   </div>
