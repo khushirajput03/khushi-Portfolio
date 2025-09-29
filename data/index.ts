@@ -174,6 +174,27 @@ export const workExperience = [
   },
 ];
 
+
+export const approachItems = [
+  {
+    id: 1,
+    title: "Research & Discovery",
+    description: "Understanding client goals, target audience, and challenges to lay a strong foundation.",
+  },
+  {
+    id: 2,
+    title: "Design & Planning",
+    description: "Creating wireframes, prototypes, and structured plans for smooth development.",
+  },
+  {
+    id: 3,
+    title: "Development",
+    description: "Building responsive and scalable solutions with modern technologies.",
+  },
+  ];
+
+
+
 export const socialMedia = [
   {
     id: 1,

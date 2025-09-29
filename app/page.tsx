@@ -7,9 +7,6 @@ import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
 import HeroSection from "@/components/HeroSection";
 import RecentProjects from "@/components/RecentProjects";
-import { SparklesPreview } from "@/components/SparklesPreview";
-
-
 
 
 
@@ -21,7 +18,6 @@ export default function Home() {
       <HeroSection/>
        <Grid/>
       <RecentProjects/>
-      <SparklesPreview/>
       <Clients/>
       <Experience/>
       <Approach/>
