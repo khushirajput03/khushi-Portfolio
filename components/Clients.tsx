@@ -61,7 +61,7 @@ const SkillsWaterfallStack: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-center items-start md:space-x-8 space-y-6 md:space-y-0 perspective-container">
           {/* Stack One */}
           <div
-            className="w-[70vw] ml-20 md:w-6/12 lg:w-4/12 stack-one transition-transform duration-800"
+            className="w-[80vw] ml-20 md:w-6/12 lg:w-4/12 stack-one transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
           >
             {stackOne.map((item, index) => (
@@ -71,7 +71,7 @@ const SkillsWaterfallStack: React.FC = () => {
 
           {/* Stack Two */}
           <div
-            className="w-[70vw] ml-20 md:w-6/12 lg:w-4/12 stack-two transition-transform duration-800"
+            className="w-[80vw] ml-20 md:w-6/12 lg:w-4/12 stack-two transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
           >
             {stackTwo.map((item, index) => (
