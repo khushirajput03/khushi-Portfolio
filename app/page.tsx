@@ -1,7 +1,8 @@
 
 'use client'
 import { CanvasRevealEffectDemo } from "@/components/Approach";
-import Clients from "@/components/Clients";
+import SkillsWaterfallStack from "@/components/Clients";
+// import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
@@ -20,7 +21,7 @@ export default function Home() {
        <Grid/>
       <RecentProjects/>
       <SparklesPreview/>
-      <Clients/>
+        <SkillsWaterfallStack/>  
 
       <Experience/>
        <CanvasRevealEffectDemo/>

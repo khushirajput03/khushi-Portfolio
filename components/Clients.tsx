@@ -6,7 +6,7 @@ import { skills } from "@/data/index";
 
 export interface Skill {
   name: string;
-  img?: string; 
+  img?: string;
 }
 
 const HALF = Math.ceil(skills.length / 2);
@@ -22,7 +22,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
   <div
     aria-label={`Skill: ${item.name}`}
     style={{ animationDelay: `${index * 0.1}s` }}
-    className="w-full bg-gray-900/70 border border-blue-700/50 rounded-xl p-4 flex items-center space-x-4 mb-4
+    className="w-full bg-gray-900/70 border border-blue-700/50 rounded-xl p-3 sm:p-4 flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4
                backdrop-blur-sm shadow-[0_0_10px_rgba(0,180,255,0.4)]
                transition-transform transition-colors duration-500 ease-out
                hover:bg-gray-800/90 hover:shadow-none hover:border-blue-500"
@@ -33,20 +33,21 @@ const SkillCard: React.FC<SkillCardProps> = ({ item, index }) => (
         alt={item.name}
         width={48}
         height={48}
-        className="w-12 h-12 rounded-full object-contain"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-contain"
         loading="lazy"
       />
     )}
-    <span className="text-white font-semibold text-base sm:text-lg">{item.name}</span>
+    <span className="text-white font-semibold text-sm sm:text-base md:text-lg">
+      {item.name}
+    </span>
   </div>
 );
-
 
 const SkillsWaterfallStack: React.FC = () => {
   return (
     <section
       id="skills"
-      className="mt-[-80px] pb-6 w-full bg-black relative overflow-hidden group"
+      className="min-h-screen pb-10 w-full bg-black relative overflow-hidden group flex flex-col justify-center"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600
@@ -54,13 +55,13 @@ const SkillsWaterfallStack: React.FC = () => {
       </div>
 
       {/* Container */}
-      <div className="w-full max-w-lg sm:max-w-xl md:max-w-7xl mx-auto px-4">
+      <div className="w-full max-w-lg sm:max-w-xl md:max-w-6xl lg:max-w-7xl mx-auto px-3 sm:px-4">
 
         {/* Dual Stacks */}
-        <div className="flex flex-col md:flex-row justify-center items-start md:space-x-8 space-y-8 md:space-y-0 perspective-container">
+        <div className="flex flex-col md:flex-row justify-center items-start md:space-x-8 space-y-6 md:space-y-0 perspective-container">
           {/* Stack One */}
           <div
-            className="w-full md:w-5/12 lg:w-4/12 stack-one transition-transform duration-800"
+            className="w-[70vw] ml-20 md:w-6/12 lg:w-4/12 stack-one transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
           >
             {stackOne.map((item, index) => (
@@ -70,7 +71,7 @@ const SkillsWaterfallStack: React.FC = () => {
 
           {/* Stack Two */}
           <div
-            className="w-full md:w-5/12 lg:w-4/12 stack-two transition-transform duration-800"
+            className="w-[70vw] ml-20 md:w-6/12 lg:w-4/12 stack-two transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
           >
             {stackTwo.map((item, index) => (
@@ -106,4 +107,4 @@ const SkillsWaterfallStack: React.FC = () => {
   );
 };
 
-export default SkillsWaterfallStack; 
+export default SkillsWaterfallStack;
