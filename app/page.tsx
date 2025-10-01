@@ -20,9 +20,9 @@ export default function Home() {
       <HeroSection/>
        <Grid/>
       <RecentProjects/>
-       <SparklesPreview/>
-      {/*<SkillsWaterfallStack/>  
-      <Experience/>
+       {/* <SparklesPreview/> */}
+      <SkillsWaterfallStack/>  
+      {/* <Experience/>
       <CanvasRevealEffectDemo/>
       <Footer/> */}
     </main>
