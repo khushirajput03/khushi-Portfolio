@@ -24,7 +24,7 @@ export default function Home() {
       <SkillsWaterfallStack/>  
       <Experience/>
       <CanvasRevealEffectDemo/>
-      {/* <Footer/> */}
+      <Footer/>
     </main>
   </div>
   );

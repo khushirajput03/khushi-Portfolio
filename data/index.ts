@@ -11,7 +11,7 @@ export const gridItems = [
     title: "I prioritize client collaboration, fostering open communication",
     description: "",
     className: `lg:ml-0 lg:col-span-3 md:col-span-6 lg:row-span-4 md:row-span-1 lg:h-[110vh] lg:w-[55vw]  md:w-[120vw] lg:ml-0
-     w-[90vw] h-[20vh] ml-0`,
+     w-full h-[20vh] ml-0`,
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
     img: "/b1.svg",
