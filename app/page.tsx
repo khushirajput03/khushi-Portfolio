@@ -20,7 +20,7 @@ export default function Home() {
       <HeroSection/>
        <Grid/>
       <RecentProjects/>
-       {/* <SparklesPreview/> */}
+       <SparklesPreview/>
       <SkillsWaterfallStack/>  
       <Experience/>
       <CanvasRevealEffectDemo/>
