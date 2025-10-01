@@ -22,8 +22,8 @@ export default function Home() {
       <RecentProjects/>
        {/* <SparklesPreview/> */}
       <SkillsWaterfallStack/>  
-      {/* <Experience/>
-      <CanvasRevealEffectDemo/>
+      <Experience/>
+      {/* <CanvasRevealEffectDemo/>
       <Footer/> */}
     </main>
   </div>
