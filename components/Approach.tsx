@@ -6,8 +6,13 @@ import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 export function CanvasRevealEffectDemo() {
   return (
     <>
+ <h1 className="heading text-center relative mt-20 z-10 text-3xl md:text-4xl font-bold">
+        My
+          <span className="text-purple-400"> Approach</span>
+  </h1>
       <div className="py-10 sm:py-20 flex flex-col lg:flex-row items-center justify-center bg-black w-full gap-6 sm:gap-8 mx-auto px-4 sm:px-8">
         {/* Card 1: Understand & Deconstruct */}
+        
         <Card
           title="Understand & Deconstruct"
           description="Break down the problem into modular components by identifying system bottlenecks, user requirements, and security constraints."
