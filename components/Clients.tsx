@@ -47,7 +47,7 @@ const SkillsWaterfallStack: React.FC = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen mt-[-70px] ml-10 sm:mt[-70px] md:mt-[-70px] pb-10 w-full bg-black relative overflow-hidden group flex flex-col justify-center"
+      className="min-h-screen mt-[-70px] sm:mt[-70px] md:mt-[-70px] pb-10 w-full bg-black relative overflow-hidden group flex flex-col justify-center"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600
@@ -71,7 +71,7 @@ const SkillsWaterfallStack: React.FC = () => {
 
           {/* Stack Two */}
           <div
-            className="w-[80vw] ml-10 md:w-6/12 lg:w-4/12 stack-two transition-transform duration-800"
+            className="w-[80vw] md:w-6/12 lg:w-4/12 stack-two transition-transform duration-800"
             style={{ transformStyle: "preserve-3d" }}
           >
             {stackTwo.map((item, index) => (

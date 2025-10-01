@@ -23,8 +23,8 @@ export default function Home() {
        {/* <SparklesPreview/> */}
       <SkillsWaterfallStack/>  
       <Experience/>
-      {/* <CanvasRevealEffectDemo/>
-      <Footer/> */}
+      <CanvasRevealEffectDemo/>
+      {/* <Footer/> */}
     </main>
   </div>
   );
